@@ -42,20 +42,14 @@ O projeto utiliza o padrão **MVC** do CodeIgniter 4, otimizado para evitar o ac
 ## 🚀 Como Executar o Projeto
 
 1.  **Instale as dependências:**
-    ```bash
     composer install
-    ```
 
 2.  **Configure o ambiente:**
-    ```bash
     cp env .env
-    ```
     *(Não esqueça de configurar suas credenciais de banco de dados e JWT_SECRET no arquivo `.env`)*
 
 3.  **Suba o servidor local:**
-    ```bash
     php spark serve
-    ```
 
 O servidor ficará disponível em: [http://localhost:8080](http://localhost:8080)
 
@@ -66,5 +60,4 @@ O servidor ficará disponível em: [http://localhost:8080](http://localhost:8080
 O projeto já vem preparado para testes automatizados com **PHPUnit**.
 
 Para rodar todos os testes, utilize o comando:
-```bash
 vendor/bin/phpunit
