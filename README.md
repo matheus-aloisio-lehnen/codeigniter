@@ -1,68 +1,78 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter 4 Boilerplate
 
-## What is CodeIgniter?
+Boilerplate simples e bem estruturado para projetos backend em **CodeIgniter 4**, focado em
+organização, testabilidade e evolução segura em sistemas em produção.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Este repositório não tenta reinventar o framework nem aplicar arquitetura acadêmica.
+A proposta é servir como **base sólida** para projetos reais, onde clareza, previsibilidade
+e responsabilidade com produção importam mais do que abstrações excessivas.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+---
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 🎯 Objetivo
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- Servir como ponto de partida para APIs e backends em PHP
+- Facilitar manutenção e evolução do código ao longo do tempo
+- Incentivar testes automatizados desde o início
+- Manter o projeto simples, legível e fácil de entender por novos desenvolvedores
 
-## Installation & updates
+---
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## 🧱 Estrutura
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+O projeto segue a estrutura padrão do CodeIgniter 4, com alguns cuidados adicionais:
 
-## Setup
+- Separação clara entre **Controllers**, **Use Cases** e **Models**
+- Regras de negócio fora dos controllers
+- Controllers focados apenas em entrada/saída (HTTP)
+- Uso consciente de serviços e helpers
+- Camada de domínio simples, sem acoplamento desnecessário
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+A ideia é evitar “fat controllers” e concentrar a lógica em classes testáveis.
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## ⚙️ Requisitos
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- PHP 8.1 ou superior
+- Composer
+- Extensões PHP habilitadas conforme o CodeIgniter 4
 
-**Please** read the user guide for a better explanation of how CI4 works!
+---
 
-## Repository Management
+## 🚀 Como executar o projeto
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Instale as dependências:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+- composer install
 
-## Server Requirements
+Configure o ambiente:
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+- cp env .env
+- php spark key:generate
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Suba o servidor local:
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+- php spark serve
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+O servidor ficará disponível em:
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+- http://localhost:8080
+
+---
+
+## 🧪 Como rodar os testes
+
+O projeto já vem preparado para testes automatizados com PHPUnit.
+
+Para rodar os testes:
+
+vendor/bin/phpunit
+
+---
+
+## 📄 Licença
+
+- Este projeto está licenciado sob a licença MIT.
+
+
