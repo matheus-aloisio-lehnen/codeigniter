@@ -1,78 +1,70 @@
 # CodeIgniter 4 Boilerplate
 
-Boilerplate simples e bem estruturado para projetos backend em **CodeIgniter 4**, focado em
-organização, testabilidade e evolução segura em sistemas em produção.
+Boilerplate simples e bem estruturado para projetos backend em **CodeIgniter 4**, focado em organização, testabilidade e evolução segura de sistemas em produção.
 
-Este repositório não tenta reinventar o framework nem aplicar arquitetura acadêmica.
-A proposta é servir como **base sólida** para projetos reais, onde clareza, previsibilidade
-e responsabilidade com produção importam mais do que abstrações excessivas.
+Este repositório serve como uma **base sólida** para projetos reais, onde clareza, previsibilidade e responsabilidade com o ambiente de produção importam mais do que abstrações excessivas.
 
 ---
 
 ## 🎯 Objetivo
 
-- Servir como ponto de partida para APIs e backends em PHP
-- Facilitar manutenção e evolução do código ao longo do tempo
-- Incentivar testes automatizados desde o início
-- Manter o projeto simples, legível e fácil de entender por novos desenvolvedores
+* **Ponto de Partida:** Base pronta para APIs e backends robustos em PHP.
+* **Manutenibilidade:** Estrutura que facilita a evolução do código a longo prazo.
+* **Test-Ready:** Incentivo ao uso de testes automatizados desde o primeiro dia.
+* **Simplicidade:** Código legível e de fácil onboarding para novos desenvolvedores.
 
 ---
 
-## 🧱 Estrutura
+## 🧱 Estrutura e Arquitetura
 
-O projeto segue a estrutura padrão do CodeIgniter 4, com alguns cuidados adicionais:
+O projeto utiliza o padrão **MVC** do CodeIgniter 4, otimizado para evitar o acúmulo de lógica em locais errados (*Fat Controllers*):
 
-- Separação clara entre **Controllers**, **Use Cases** e **Models**
-- Regras de negócio fora dos controllers
-- Controllers focados apenas em entrada/saída (HTTP)
-- Uso consciente de serviços e helpers
-- Camada de domínio simples, sem acoplamento desnecessário
 
-A ideia é evitar “fat controllers” e concentrar a lógica em classes testáveis.
+
+[Image of MVC Architecture pattern]
+
+
+* **Controllers:** Responsáveis apenas pela entrada e saída (HTTP). Validam a requisição e entregam a resposta.
+* **Use Cases / Services:** Camada intermediária onde reside a lógica de negócio, garantindo que o código seja reutilizável e testável.
+* **Models:** Responsáveis exclusivamente pela interação com o banco de dados e abstração das entidades.
+* **Helpers & Libraries:** Funções auxiliares e integrações de terceiros de forma desacoplada.
 
 ---
 
 ## ⚙️ Requisitos
 
-- PHP 8.1 ou superior
-- Composer
-- Extensões PHP habilitadas conforme o CodeIgniter 4
+* **PHP:** 8.4
+* **Composer:** Instalado globalmente
+* **Extensões:** `intl`, `mbstring`, `curl`, `json`, `xml` (padrão CI4)
 
 ---
 
-## 🚀 Como executar o projeto
+## 🚀 Como Executar o Projeto
 
-Instale as dependências:
+1.  **Instale as dependências:**
+    ```bash
+    composer install
+    ```
 
-- composer install
+2.  **Configure o ambiente:**
+    ```bash
+    cp env .env
+    ```
+    *(Não esqueça de configurar suas credenciais de banco de dados e JWT_SECRET no arquivo `.env`)*
 
-Configure o ambiente:
+3.  **Suba o servidor local:**
+    ```bash
+    php spark serve
+    ```
 
-- cp env .env
-- php spark key:generate
-
-Suba o servidor local:
-
-- php spark serve
-
-O servidor ficará disponível em:
-
-- http://localhost:8080
+O servidor ficará disponível em: [http://localhost:8080](http://localhost:8080)
 
 ---
 
-## 🧪 Como rodar os testes
+## 🧪 Suíte de Testes
 
-O projeto já vem preparado para testes automatizados com PHPUnit.
+O projeto já vem preparado para testes automatizados com **PHPUnit**.
 
-Para rodar os testes:
-
+Para rodar todos os testes, utilize o comando:
+```bash
 vendor/bin/phpunit
-
----
-
-## 📄 Licença
-
-- Este projeto está licenciado sob a licença MIT.
-
-
